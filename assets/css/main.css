@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "AvertaDemoPE-Regular";
+  src: url("/fonts/AvertaDemoPE-Regular.otf") format("woff.otf");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "AvertaStd-Bold";
+  src: url("/fonts/AvertaStd-Bold.ttf") format("woff.ttf");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  html {
+    font-family: AvertaDemoPE-Regular, sans-serif;
+  }
+}
+
+@layer components {
+  .dg-font-bold {
+    font-family: AvertaStd-Bold, sans-serif;
+  }
+  .dg-h1 {
+    @apply text-h1 font-medium text-primary antialiased;
+  }
+  .dg-overline {
+    @apply text-overline text-primary;
+  }
+  .dg-subtitle {
+    @apply text-subtitle font-medium text-primary antialiased;
+  }
+  .dg-body {
+    @apply text-body text-grey font-light antialiased;
+  }
+}
