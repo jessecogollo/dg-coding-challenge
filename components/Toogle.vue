@@ -25,7 +25,7 @@
               :class="[
                 enabled ? 'translate-x-5' : 'translate-x-0',
                 hasIcon ? 'h-7 w-7' : 'h-5 w-5',
-                enabled && hasIcon ? 'translate-x-2.5' : 'translate-x-0',
+                enabled && hasIcon ? 'translate-x-3' : 'translate-x-0',
                 'pointer-events-none relative inline-block transform rounded-full bg-white shadow transition duration-200 ease-in-out',
               ]"
             >
