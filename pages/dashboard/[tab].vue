@@ -1,12 +1,12 @@
 <template>
   <div class="grid grid-cols-3 gap-8">
-    <div v-for="card in cards" :key="card.title" class="w-80">
+    <div v-for="plugin in plugins" :key="plugin.title" class="w-80">
       <Card
-        :title="card.title"
-        :description="card.description"
-        :disabled="card.disabled"
-        :status="card.status"
-        @card-toggle-value="handleCardToggleValue(card.key, $event)"
+        :title="plugin.title"
+        :description="plugin.description"
+        :disabled="plugin.disabled"
+        :status="plugin.status"
+        @card-toggle-value="handlePluginToggleValue(plugin.key, $event)"
       />
     </div>
   </div>
@@ -20,7 +20,7 @@ const currentTab = data.value.data.tabdata[tab];
 
 const cookieToogle = useCookie("toogle");
 
-const cards = computed(() => {
+const plugins = computed(() => {
   const toogle = useToogle(cookieToogle.value);
 
   const actives = currentTab.active.map(getPluginMap).map((plugin) => {
@@ -58,9 +58,9 @@ function getPluginMap(pluginKey) {
   };
 }
 
-async function handleCardToggleValue(cardKey, toogleValue) {
+async function handlePluginToggleValue(pluginKey, toogleValue) {
   const { data } = await useUpdatePlugin({
-    cardKey,
+    pluginKey,
     toogleValue: !toogleValue,
   });
   //Mock BE response

@@ -1,10 +1,10 @@
-export const useToogle = (toogleValue: any) => {
+export const useToogle = (toogleValue: boolean) => {
   return useState<boolean>("toogle", () =>
     toogleValue === undefined ? true : toogleValue
   );
 };
 
-export const useUpdateToogle = (value: any) => {
+export const useUpdateToogle = (value: boolean) => {
   const cookieToogle = useCookie<boolean>("toogle");
   cookieToogle.value = value;
 
