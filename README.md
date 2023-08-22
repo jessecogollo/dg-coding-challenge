@@ -1,5 +1,7 @@
 # DataGuard Coding challenge
 
+[notes](./PLANNING.md)
+
 ## Task
 
 - Create User Interface as per the Design on next slides
@@ -19,8 +21,17 @@
 
 ## Deliverable
 
-- Deploy you submission on **Heroku**/netlify
+- Deploy you submission on **Heroku**/netlify. I used [vercel](https://vercel.com/dashboard). I already have an account and they dont request payment method to deploy.
 - Chare a link to your code from **github**/bitbucket whichever works fine for you
+
+### Pages
+
+https://dg-coding-challenge.vercel.app/dashboard
+https://dg-coding-challenge.vercel.app/dashboard/tab1
+https://dg-coding-challenge.vercel.app/dashboard/tab2
+https://dg-coding-challenge.vercel.app/dashboard/tab3
+
+https://dg-coding-challenge.vercel.app/visual-guide
 
 ## Setup
 
@@ -56,14 +67,12 @@ Locally preview production build:
 pnpm run preview
 ```
 
-Design System
+## Tokens
+
 [DG Figma file](https://www.figma.com/file/fjO8pNw4YkZ2bZr4RQ1SMN/DataGuard-DS?type=design&node-id=14%3A36&mode=design&t=lI75MHet3QllzvH7-1)
 
-# Pages
+## Stack
 
-https://dg-coding-challenge.vercel.app/dashboard
-https://dg-coding-challenge.vercel.app/dashboard/tab1
-https://dg-coding-challenge.vercel.app/dashboard/tab2
-https://dg-coding-challenge.vercel.app/dashboard/tab3
-
-https://dg-coding-challenge.vercel.app/visual-guide
+- NuxtJS - VueJS
+- NitroJS
+- TailwindCSS
