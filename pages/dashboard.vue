@@ -84,7 +84,7 @@
       </nav>
     </div>
     <div class="col-span-8 p-8">
-      <h1 class="dg-h1 pb-8">Marketing Plugins</h1>
+      <h1 class="dg-h1 pb-8">{{ pageTitle }} Plugins</h1>
       <NuxtPage page-key="static" />
     </div>
   </div>
@@ -108,6 +108,7 @@ const route = useRoute();
 const { tab } = route.params;
 
 const { data } = await usePlugin();
+const pageTitle = ref(data?.value?.data?.tabdata[tab]?.title || "Dashboard");
 
 const navigation = computed(() => {
   return data.value.data.tabs.map((tabName) => {
