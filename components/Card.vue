@@ -4,13 +4,16 @@
       'opacity-50': props.disabled,
     }"
   >
-    <div class="border-solid border-2 border-gray-200 rounded-lg p-5">
+    <div
+      class="border-solid border-2 border-gray-200 rounded-lg p-5 h-48 min-h-full"
+    >
       <div class="pb-2">
         <Toogle
           :title="title"
           :has-icon="false"
           :disabled="props.disabled"
           :status="status"
+          @toogle-value="$emit('cardToggleValue', $event)"
         />
       </div>
       <p class="w-4/5 dg-body">
@@ -40,4 +43,6 @@ const props = defineProps({
     default: false,
   },
 });
+
+defineEmits(["cardToggleValue"]);
 </script>

@@ -14,13 +14,14 @@
           <li>
             <ul role="list" class="-mx-2 space-y-1">
               <li v-for="item in navigation" :key="item.name">
+                <!-- <NuxtLink -->
                 <a
                   v-if="!item.children"
                   :href="item.href"
                   :class="[
                     item.current
                       ? 'bg-white border-l-4 border-solid border-red'
-                      : 'hover:bg-gray-50',
+                      : 'hover:bg-gray-50 pl-5',
                     'group flex gap-x-3 p-4 dg-body text-grey-darken-1 -mx-4',
                   ]"
                 >
@@ -29,10 +30,9 @@
                     class="h-6 w-6 shrink-0"
                     aria-hidden="true"
                   />
-
-                  <!-- <IconMarketing class="h-6 w-6 shrink-0" /> -->
                   {{ item.name }}
                 </a>
+                <!-- </NuxtLink> -->
                 <Disclosure as="div" v-else v-slot="{ open }">
                   <DisclosureButton
                     :class="[
@@ -86,7 +86,7 @@
     </div>
     <div class="col-span-8 p-8">
       <h1 class="dg-h1 pb-8">Marketing Plugins</h1>
-      <NuxtPage />
+      <NuxtPage page-key="static" />
     </div>
   </div>
 </template>
@@ -99,13 +99,30 @@ import IconMarketing from "~/components/Icon/Marketing";
 import IconPeople from "~/components/Icon/People";
 import IconFinance from "~/components/Icon/Finance";
 
-const navigation = [
-  { name: "Marketing", href: "#", icon: IconMarketing, current: true },
-  { name: "Finance", href: "#", icon: IconFinance, current: false },
-  { name: "Personnel", href: "#", icon: IconPeople, current: false },
-];
+const iconsMap = {
+  "icon-marketing": IconMarketing,
+  "icon-people": IconPeople,
+  "icon-finance": IconFinance,
+};
 
-const toogle = ref(true);
+const route = useRoute();
+const { tab } = route.params;
+
+const { data } = await usePlugin();
+
+const navigation = computed(() => {
+  return data.value.data.tabs.map((tabName) => {
+    const currentTab = data.value.data.tabdata[tabName];
+    return {
+      name: currentTab.title,
+      href: `/dashboard/${tabName}`,
+      icon: iconsMap[currentTab.icon],
+      current: tab === tabName,
+    };
+  });
+});
+
+const toogle = useToogle();
 function handleToogle(value) {
   toogle.value = !value;
 }
