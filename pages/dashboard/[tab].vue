@@ -18,8 +18,10 @@ const { tab } = route.params;
 const { data } = await usePlugin();
 const currentTab = data.value.data.tabdata[tab];
 
+const cookieToogle = useCookie("toogle");
+
 const cards = computed(() => {
-  const toogle = useToogle();
+  const toogle = useToogle(cookieToogle.value);
 
   const actives = currentTab.active.map(getPluginMap).map((plugin) => {
     return {

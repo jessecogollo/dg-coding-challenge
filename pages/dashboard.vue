@@ -75,6 +75,7 @@
               <Toogle
                 title="All plugins"
                 class="w-screen text-xs"
+                :status="toogle"
                 @toogle-value="handleToogle"
               />
             </a>
@@ -120,8 +121,10 @@ const navigation = computed(() => {
   });
 });
 
-const toogle = useToogle();
+const cookieToogle = useCookie("toogle");
+const toogle = useToogle(cookieToogle.value);
+
 function handleToogle(value) {
-  toogle.value = !value;
+  useUpdateToogle(!value);
 }
 </script>
