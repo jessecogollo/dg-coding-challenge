@@ -1,5 +1,7 @@
 export const useToogle = (toogleValue: any) => {
-  return useState<boolean>("toogle", () => toogleValue);
+  return useState<boolean>("toogle", () =>
+    toogleValue === undefined ? true : toogleValue
+  );
 };
 
 export const useUpdateToogle = (value: any) => {
