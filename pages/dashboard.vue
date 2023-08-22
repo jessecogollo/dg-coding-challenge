@@ -98,6 +98,8 @@ import IconMarketing from "~/components/Icon/Marketing";
 import IconPeople from "~/components/Icon/People";
 import IconFinance from "~/components/Icon/Finance";
 
+const router = useRouter();
+
 const iconsMap = {
   "icon-marketing": IconMarketing,
   "icon-people": IconPeople,
@@ -105,7 +107,9 @@ const iconsMap = {
 };
 
 const route = useRoute();
-const { tab } = route.params;
+
+const { tab } = "tab" in route.params ? route.params : { tab: "tab1" };
+router.push({ path: `/dashboard/${tab}` });
 
 const { data } = await usePlugin();
 const pageTitle = ref(data?.value?.data?.tabdata[tab]?.title || "Dashboard");

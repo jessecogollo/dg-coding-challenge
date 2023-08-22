@@ -4,7 +4,7 @@
 
 ## Task
 
-- Create User Interface as per the Design on next slides
+- Create a user Interface as per the Design on next slides
 - Create a Mock JSON API server for handling GET and POST requests
 - Retrieve data from that mock server, use it in your components
 - Make sure the Toggle Switches are working with the API
@@ -21,8 +21,8 @@
 
 ## Deliverable
 
-- Deploy you submission on **Heroku**/netlify. I used [vercel](https://vercel.com/dashboard). I already have an account and they dont request payment method to deploy.
-- Chare a link to your code from **github**/bitbucket whichever works fine for you
+- Deploy your submission on **Heroku**/netlify. I used [vercel](https://vercel.com/dashboard). I already have an account and they don't request any payment method to deploy.
+- Share a link to your code from **GitHub**/Bitbucket whichever works fine for you
 
 ### Pages
 
@@ -58,13 +58,6 @@ Build the application for production:
 ```bash
 # pnpm
 pnpm run build
-```
-
-Locally preview production build:
-
-```bash
-# pnpm
-pnpm run preview
 ```
 
 ## Tokens
