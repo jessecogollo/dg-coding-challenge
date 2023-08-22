@@ -61,7 +61,7 @@ function getPluginMap(pluginKey) {
 async function handleCardToggleValue(cardKey, toogleValue) {
   const { data } = await useUpdatePlugin({
     cardKey,
-    toogleValue,
+    toogleValue: !toogleValue,
   });
   //Mock BE response
   // console.log("data", data.value.data);
