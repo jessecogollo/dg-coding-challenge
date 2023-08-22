@@ -14,7 +14,6 @@
           <li>
             <ul role="list" class="-mx-2 space-y-1">
               <li v-for="item in navigation" :key="item.name">
-                <!-- <NuxtLink -->
                 <a
                   v-if="!item.children"
                   :href="item.href"
@@ -32,7 +31,6 @@
                   />
                   {{ item.name }}
                 </a>
-                <!-- </NuxtLink> -->
                 <Disclosure as="div" v-else v-slot="{ open }">
                   <DisclosureButton
                     :class="[
