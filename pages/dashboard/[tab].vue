@@ -45,7 +45,7 @@ const plugins = computed(() => {
     };
   });
   return [...actives, ...inactives, ...disables].sort((a, b) => {
-    return a.title.localeCompare(b.title);
+    return a.title - b.title;
   });
 });
 
